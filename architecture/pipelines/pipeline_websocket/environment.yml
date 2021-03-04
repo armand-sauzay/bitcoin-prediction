@@ -1,0 +1,10 @@
+name: pipeline
+dependencies:
+  - python=3.8
+  - pip=20.1.1
+  - pip:
+    - pandas
+    - git+https://github.com/ozgur/python-firebase
+    - cbpro
+    - requests
+    
