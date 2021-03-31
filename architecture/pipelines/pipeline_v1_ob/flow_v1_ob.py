@@ -38,7 +38,7 @@ class TradeOrderBook:
             ## ob to firebase
             
             today = datetime.now(timezone.utc).date()
-            post_string='/order_book_'+str(today)
+            post_string='/order_book_v1_'+str(today)
             firebase_log_ob = self.my_firebase.post(post_string, msg_ob)
             print(firebase_log_ob)
             print(msg_ob)

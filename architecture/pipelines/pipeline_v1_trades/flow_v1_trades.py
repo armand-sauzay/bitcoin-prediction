@@ -22,17 +22,17 @@ class websocket_trades(cbpro.WebsocketClient):
         self.firebase= firebase.FirebaseApplication('https://test-random-305921-default-rtdb.firebaseio.com/', None)
         self.products = ["BTC-USD"]
         self.message_count = 0
-        self.channels=['matches']
+        self.channels=['ticker']
         #self.all=[]
 
     def on_message(self, msg):
         print(msg)
         #self.all+=[msg]
         
-        if msg['type']=='match':
+        if msg['type']=='ticker':
           #self.message_count += 1
           today = datetime.now(timezone.utc).date()
-          postt_string='/websocket_trades_'+str(today)
+          postt_string='/websocket_trades_v1_'+str(today)
           self.firebase.post(postt_string, msg)
 
 
