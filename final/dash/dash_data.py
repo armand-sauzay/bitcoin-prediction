@@ -44,6 +44,8 @@ def ohlc_viz(df_ohlc):
     fig.show()
     return(fig)
 '''
+max_len=100
+max_len_prices=1000
 
 class websocket_trades(cbpro.WebsocketClient):
     def on_open(self):
@@ -53,10 +55,10 @@ class websocket_trades(cbpro.WebsocketClient):
         self.products = ["BTC-USD"]
         self.message_count = 0
         self.channels=['ticker']
-        self.prices=deque(maxlen=1000)
-        self.times=deque(maxlen=1000)
-        self.sides=deque(maxlen=10)
-        self.all=deque(maxlen=10)
+        self.prices=deque(maxlen=max_len_prices)
+        self.times=deque(maxlen=max_len_prices)
+        self.sides=deque(maxlen=max_len)
+        self.all=deque(maxlen=max_len)
 
     def on_message(self, msg):
         #print(msg)
