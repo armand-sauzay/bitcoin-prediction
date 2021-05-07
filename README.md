@@ -2,6 +2,7 @@
 Data-X project - UC Berkeley - Investment startegy testing 
 
 This project was done by six UC Berkeley Data-X students: Armand Sauzay, Mathilde Bachy, Manav Kapoor, Vandita Pendse, Lauren Santilli, and Davis Ulrich under the mentorship of Francesco Piccoli, from Anchain.AI. 
+
 ![Dashboard](images/dashboard.png)
 
 
@@ -12,6 +13,8 @@ To read more about some of the problems facing cryptocurrencies and how our prod
 # Architecture
 
 ![architecture](images/architecture.png)
+
+
 Primary Features:
 Bitcoin Investment Buddy is powered by an algorithmic trading strategy developed in the halls of the University of California, Berkeley. Why not a more complex machine learning model? After use of advanced machine learning techniques like LSTM and ARIMA, the team found that when it comes down to making money, simple is better. 
 The algorithm has been backtested on months of data, all of which was imported via a Coinbase API and stored using Firebase. Under the hood, this data was cleaned to identify relevant features, and fed into the investment algorithm. The resulting recommendation is displayed on the UI dashboard for accessibility and ease to the consumer. 
