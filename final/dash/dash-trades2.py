@@ -43,24 +43,42 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 app.layout = html.Div(children=
     [
-        html.H1('Last 1000 trades', style={'textAlign': 'center'}),
-        html.H2('Trade prices', style={'textAlign': 'center'}),
-        dcc.Graph(id='graph-trades', animate=True),
-        dcc.Interval(
-            id='graph-trades-update',
-            interval=1*10000
-        ),
+        #html.Body(style={'backgroundColor': "black"}),
+    #     html.Div(
+    #         style={
+    #           'verticalAlign':'middle',
+    #           'textAlign': 'center',
+    #           'backgroundColor': "darkGrey",
+    #           'position':'fixed',
+    #           'width':'100%',
+    #           'height':'100%',
+    #           'top':'0px',
+    #           'left':'0px',
+    #           'z-index':'1000'
+    #         }
+    #   ),
+        html.Div(className = 'firstGraph', children = [
+            html.H1('Bitcoin Investment Buddy', style={'backgroundColor': 'blue', 'color': 'white', 'textAlign': 'center'}),
+            html.H2('Last 1000 Trade Prices (Realtime Updates)', style={'backgroundColor': 'blue', 'color': 'white', 'textAlign': 'center'}),
+            dcc.Graph(id='graph-trades', animate=True),
+            dcc.Interval(
+                id='graph-trades-update',
+                interval=1*10000
+            ),
+        ], style={'color': '#1E1E1E'}),
 
-        html.H1('Last 100 trades', style={'textAlign': 'center'}),
-        html.H2('a buy indicates an uptick (taker side)', style={'textAlign': 'center'}),
-        dcc.Graph(id='graph-sides', animate=True),
-        dcc.Interval(
-            id='graph-sides-update',
-            interval=1*10000 #ms
-)
-
+        html.Div(className = 'second section', children = [
+            html.H2('Analysis of Last 100 Trades', style={'textAlign': 'center', 'backgroundColor': 'black', 'color': 'white'}),
+            html.H2('a buy indicates an uptick (taker side)', style={'textAlign': 'center', 'backgroundColor': 'blue', 'color': 'white'}),
+            dcc.Graph(id='graph-sides', animate=True),
+            dcc.Interval(
+                id='graph-sides-update',
+                interval=1*10000 #ms
+                ),
+        ]),
     ]
 )
+
 
 
 
@@ -134,6 +152,7 @@ def update_graph_sides(input_data):
         #'mode' : "number+delta+gauge",
         #'delta' : {'reference': 90}}]
         #
+    fig.layout.plot_bgcolor = '#346ec9'
     return fig
 
 
